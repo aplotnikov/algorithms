@@ -5,9 +5,9 @@ import static java.util.stream.IntStream.range;
 /**
  * Algorithm name: quick-find
  * Complexity:
- *  initialization: N
- *  union: N
- *  find: 1
+ * - initialization: N
+ * - union: N
+ * - find: 1
  */
 class QuickFind {
 
