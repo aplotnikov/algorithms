@@ -1,0 +1,23 @@
+plugins {
+    id 'groovy'
+}
+
+group 'io.github.aplotnikov'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = JavaVersion.VERSION_11
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    testImplementation(
+        'org.codehaus.groovy:groovy:3.0.4',
+        'org.spockframework:spock-core:2.0-M3-groovy-3.0',
+    )
+}
+
+test {
+    useJUnitPlatform()
+}
