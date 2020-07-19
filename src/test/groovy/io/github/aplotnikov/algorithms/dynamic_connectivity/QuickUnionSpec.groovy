@@ -19,6 +19,10 @@ class QuickUnionSpec extends Specification {
             }
             /*
              * Graph after the operations
+             *
+             *         0  1  2  3  4  5  6  7  8  9
+             * id[] = [0, 1, 1, 8, 3, 5, 5, 7, 8, 8]
+             *
              * 0 1 5 7 8_
              *   | |   | |
              *   2 6   3 9
@@ -39,6 +43,10 @@ class QuickUnionSpec extends Specification {
             }
             /*
              * Graph after the operations
+             *
+             *         0  1  2  3  4  5  6  7  8  9
+             * id[] = [1, 8, 1, 8, 3, 0, 5, 1, 8, 8]
+             *
              *   _____8__
              *   |    |  |
              * __1__  3  9

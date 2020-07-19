@@ -19,6 +19,10 @@ class QuickFindSpec extends Specification {
             }
             /*
              * Graph after the operations
+             *
+             *         0  1  2  3  4  5  6  7  8  9
+             * id[] = [0, 1, 1, 8, 8, 5, 5, 7, 8, 8]
+             *
              * 0 1-2 3-4
              *       | |
              * 5-6 7 8 9
@@ -36,6 +40,10 @@ class QuickFindSpec extends Specification {
             }
             /*
              * Graph after the operations
+             *
+             *         0  1  2  3  4  5  6  7  8  9
+             * id[] = [1, 1, 1, 8, 8, 1, 1, 1, 8, 8]
+             *
              * 0 1-2 3-4
              * | | | | |
              * 5-6 7 8 9
