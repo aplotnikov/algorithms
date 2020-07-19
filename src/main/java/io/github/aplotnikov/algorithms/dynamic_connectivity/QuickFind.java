@@ -9,11 +9,11 @@ import static java.util.stream.IntStream.range;
  *  union: N
  *  find: 1
  */
-class QuickFindUnionFind {
+class QuickFind {
 
     private final int[] id;
 
-    QuickFindUnionFind(int size) {
+    QuickFind(int size) {
         this.id = range(0, size).toArray();
     }
 

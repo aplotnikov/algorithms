@@ -3,10 +3,10 @@ package io.github.aplotnikov.algorithms.dynamic_connectivity
 import spock.lang.Specification
 import spock.lang.Subject
 
-class QuickFindUnionFindSpec extends Specification {
+class QuickFindSpec extends Specification {
 
     @Subject
-    QuickFindUnionFind algorithm = new QuickFindUnionFind(10)
+    QuickFind algorithm = new QuickFind(10)
 
     void 'should find unite nodes and find connectivity'() {
         when:
