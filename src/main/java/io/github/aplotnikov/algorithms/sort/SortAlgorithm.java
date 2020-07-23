@@ -5,7 +5,7 @@ abstract class SortAlgorithm {
     protected final int[] array;
 
     SortAlgorithm(int... array) {
-        this.array = array;
+        this.array = array.clone();
     }
 
     final int[] getArray() {

@@ -17,10 +17,10 @@ class SortAlgorithmSpec extends Specification {
             sortAlgorithm.array == [1, 4, 5, 7, 8] as int[]
         where:
             sortAlgorithm << [
-                new SelectionSort(unsortedArray.clone()),
-                new InsertionSort(unsortedArray.clone()),
-                new ShellSort(unsortedArray.clone()),
-                new BubbleSort(unsortedArray.clone())
+                new SelectionSort(unsortedArray),
+                new InsertionSort(unsortedArray),
+                new ShellSort(unsortedArray),
+                new BubbleSort(unsortedArray)
             ]
     }
 }
