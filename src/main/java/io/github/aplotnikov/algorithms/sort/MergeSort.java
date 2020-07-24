@@ -3,6 +3,9 @@ package io.github.aplotnikov.algorithms.sort;
 import static java.util.Arrays.copyOfRange;
 import static java.util.stream.IntStream.range;
 
+/**
+ * Complexity is n lg n
+ */
 class MergeSort extends SortAlgorithm {
 
     MergeSort(int... array) {
