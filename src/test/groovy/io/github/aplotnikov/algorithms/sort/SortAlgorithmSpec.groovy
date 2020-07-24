@@ -20,7 +20,8 @@ class SortAlgorithmSpec extends Specification {
                 new SelectionSort(unsortedArray),
                 new InsertionSort(unsortedArray),
                 new ShellSort(unsortedArray),
-                new BubbleSort(unsortedArray)
+                new BubbleSort(unsortedArray),
+                new MergeSort(unsortedArray)
             ]
     }
 }
