@@ -8,33 +8,21 @@ import static java.util.stream.IntStream.rangeClosed;
  */
 class ShellSort extends SortAlgorithm {
 
-    ShellSort(int... array) {
-        super(array);
-    }
-
-    private int initialStepSize() {
-        int size = 1;
-
-        while (size <= array.length / 3) {
-            size = size * 3 + 1;
-        }
-
-        return size;
-    }
-
     @Override
-    void sort() {
-        int stepSize = initialStepSize();
+    public int[] apply(int[] source) {
+        int[] result = source.clone();
+
+        int stepSize = initialStep(result.length);
 
         while (stepSize > 0) {
             int currentStepSize = stepSize;
 
-            range(0, array.length - stepSize).forEach(
+            range(0, result.length - stepSize).forEach(
                 lastElementIndex ->
                     rangeClosed(0, lastElementIndex).forEach(
                         currentElementIndex -> {
-                            if (array[currentElementIndex] > array[currentElementIndex + currentStepSize]) {
-                                swap(array, currentElementIndex, currentElementIndex + currentStepSize);
+                            if (result[currentElementIndex] > result[currentElementIndex + currentStepSize]) {
+                                swap(result, currentElementIndex, currentElementIndex + currentStepSize);
                             }
                         }
                     )
@@ -42,5 +30,17 @@ class ShellSort extends SortAlgorithm {
 
             stepSize = (stepSize - 1) / 3;
         }
+
+        return result;
+    }
+
+    private int initialStep(int arraySize) {
+        int size = 1;
+
+        while (size <= arraySize / 3) {
+            size = size * 3 + 1;
+        }
+
+        return size;
     }
 }

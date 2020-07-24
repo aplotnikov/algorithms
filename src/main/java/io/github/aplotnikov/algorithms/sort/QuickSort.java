@@ -12,14 +12,14 @@ class QuickSort extends SortAlgorithm {
 
     private static final Random RANDOM = new SecureRandom();
 
-    QuickSort(int... array) {
-        super(array);
-    }
-
     @Override
-    void sort() {
-        shuffle(array);
-        sort(array, 0, array.length - 1);
+    public int[] apply(int[] source) {
+        int[] result = source.clone();
+
+        shuffle(result);
+        sort(result, 0, result.length - 1);
+
+        return result;
     }
 
     private void shuffle(int[] array) {

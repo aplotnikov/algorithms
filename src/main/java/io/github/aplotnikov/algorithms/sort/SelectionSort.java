@@ -7,17 +7,18 @@ import static java.util.stream.IntStream.range;
  */
 class SelectionSort extends SortAlgorithm {
 
-    SelectionSort(int... array) {
-        super(array);
-    }
+    @Override
+    public int[] apply(int[] source) {
+        int[] result = source.clone();
 
-    void sort() {
-        range(0, array.length - 1).forEach(
+        range(0, result.length - 1).forEach(
             currentElementIndex -> {
-                int smallestElementIndex = findIndexOfSmallestElement(array, currentElementIndex);
-                swap(array, currentElementIndex, smallestElementIndex);
+                int smallestElementIndex = findIndexOfSmallestElement(result, currentElementIndex);
+                swap(result, currentElementIndex, smallestElementIndex);
             }
         );
+
+        return result;
     }
 
     private int findIndexOfSmallestElement(int[] array, int startIndex) {
@@ -31,5 +32,4 @@ class SelectionSort extends SortAlgorithm {
                 }
             );
     }
-
 }

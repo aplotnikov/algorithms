@@ -1,16 +1,8 @@
 package io.github.aplotnikov.algorithms.sort;
 
-abstract class SortAlgorithm {
+import java.util.function.UnaryOperator;
 
-    protected final int[] array;
-
-    SortAlgorithm(int... array) {
-        this.array = array.clone();
-    }
-
-    final int[] getArray() {
-        return array.clone();
-    }
+abstract class SortAlgorithm implements UnaryOperator<int[]> {
 
     protected final void swap(int[] array, int firstElementIndex, int secondElementIndex) {
         int previousElement = array[firstElementIndex];
@@ -18,10 +10,8 @@ abstract class SortAlgorithm {
         array[secondElementIndex] = previousElement;
     }
 
-    abstract void sort();
-
     @Override
-    public String toString() {
+    public final String toString() {
         return getClass().getSimpleName();
     }
 }

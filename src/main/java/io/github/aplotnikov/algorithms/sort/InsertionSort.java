@@ -7,23 +7,23 @@ import static java.util.stream.IntStream.range;
  */
 class InsertionSort extends SortAlgorithm {
 
-    InsertionSort(int... array) {
-        super(array);
-    }
-
     @Override
-    void sort() {
-        range(1, array.length).forEach(
+    public int[] apply(int[] source) {
+        int[] result = source.clone();
+
+        range(1, result.length).forEach(
             lastElementIndex ->
-                range(0, array.length - lastElementIndex).forEach(
+                range(0, result.length - lastElementIndex).forEach(
                     currentElementIndex -> {
-                        if (array[currentElementIndex] <= array[currentElementIndex + 1]) {
+                        if (result[currentElementIndex] <= result[currentElementIndex + 1]) {
                             return;
                         }
 
-                        swap(array, currentElementIndex, currentElementIndex + 1);
+                        swap(result, currentElementIndex, currentElementIndex + 1);
                     }
                 )
         );
+
+        return result;
     }
 }

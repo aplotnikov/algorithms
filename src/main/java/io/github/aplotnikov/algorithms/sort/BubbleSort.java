@@ -7,21 +7,21 @@ import static java.util.stream.IntStream.range;
  */
 class BubbleSort extends SortAlgorithm {
 
-    BubbleSort(int... array) {
-        super(array);
-    }
-
     @Override
-    void sort() {
-        range(1, array.length).forEach(
+    public int[] apply(int[] source) {
+        int[] result = source.clone();
+
+        range(1, result.length).forEach(
             iteration ->
-                range(0, array.length - iteration).forEach(
+                range(0, result.length - iteration).forEach(
                     currentElementIndex -> {
-                        if (array[currentElementIndex] > array[currentElementIndex + 1]) {
-                            swap(array, currentElementIndex, currentElementIndex + 1);
+                        if (result[currentElementIndex] > result[currentElementIndex + 1]) {
+                            swap(result, currentElementIndex, currentElementIndex + 1);
                         }
                     }
                 )
         );
+
+        return result;
     }
 }

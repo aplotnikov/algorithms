@@ -1,23 +1,15 @@
 package io.github.aplotnikov.algorithms.sort;
 
 import static java.util.Arrays.copyOfRange;
-import static java.util.stream.IntStream.range;
 
 /**
  * Complexity is n lg n
  */
 class MergeSort extends SortAlgorithm {
 
-    MergeSort(int... array) {
-        super(array);
-    }
-
     @Override
-    void sort() {
-        int[] result = sort(array);
-        range(0, array.length).forEach(
-            element -> array[element] = result[element]
-        );
+    public int[] apply(int[] source) {
+        return sort(source.clone());
     }
 
     private int[] sort(int[] subarray) {
