@@ -11,15 +11,13 @@ class BubbleSort extends SortAlgorithm {
     public int[] apply(int[] source) {
         int[] result = source.clone();
 
-        range(1, result.length).forEach(
-            iteration ->
-                range(0, result.length - iteration).forEach(
-                    currentElementIndex -> {
-                        if (result[currentElementIndex] > result[currentElementIndex + 1]) {
-                            swap(result, currentElementIndex, currentElementIndex + 1);
-                        }
+        range(1, result.length).forEach(to ->
+            range(0, result.length - to).forEach(current -> {
+                    if (result[current] > result[current + 1]) {
+                        swap(result, current, current + 1);
                     }
-                )
+                }
+            )
         );
 
         return result;

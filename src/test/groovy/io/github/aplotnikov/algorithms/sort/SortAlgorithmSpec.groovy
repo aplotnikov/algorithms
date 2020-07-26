@@ -20,7 +20,8 @@ class SortAlgorithmSpec extends Specification {
                 new ShellSort(),
                 new BubbleSort(),
                 new MergeSort(),
-                new QuickSort()
+                new QuickSort(),
+                new HeapSort()
             ]
     }
 }

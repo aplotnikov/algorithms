@@ -24,10 +24,8 @@ class QuickFind {
     void union(int source, int target) {
         int sourceId = id[source];
         int targetId = id[target];
-        for (int i = 0; i < id.length; i++) {
-            if (id[i] == sourceId) {
-                id[i] = targetId;
-            }
-        }
+        range(0, id.length)
+            .filter(index -> id[index] == sourceId)
+            .forEach(index -> id[index] = targetId);
     }
 }

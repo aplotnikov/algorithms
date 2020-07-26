@@ -11,24 +11,19 @@ class SelectionSort extends SortAlgorithm {
     public int[] apply(int[] source) {
         int[] result = source.clone();
 
-        range(0, result.length - 1).forEach(
-            currentElementIndex -> {
-                int smallestElementIndex = findIndexOfSmallestElement(result, currentElementIndex);
-                swap(result, currentElementIndex, smallestElementIndex);
-            }
-        );
+        range(0, result.length - 1)
+            .forEach(current -> swap(result, current, findSmallestElementIndex(result, current)));
 
         return result;
     }
 
-    private int findIndexOfSmallestElement(int[] array, int startIndex) {
-        return range(startIndex + 1, array.length)
-            .reduce(startIndex, (smallestElementIndex, currentElementIndex) -> {
-                    if (array[currentElementIndex] < array[smallestElementIndex]) {
-                        return currentElementIndex;
+    private int findSmallestElementIndex(int[] array, int from) {
+        return range(from + 1, array.length)
+            .reduce(from, (smallest, current) -> {
+                    if (array[current] < array[smallest]) {
+                        return current;
                     }
-
-                    return smallestElementIndex;
+                    return smallest;
                 }
             );
     }

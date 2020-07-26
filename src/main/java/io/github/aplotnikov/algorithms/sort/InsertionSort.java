@@ -11,17 +11,14 @@ class InsertionSort extends SortAlgorithm {
     public int[] apply(int[] source) {
         int[] result = source.clone();
 
-        range(1, result.length).forEach(
-            lastElementIndex ->
-                range(0, result.length - lastElementIndex).forEach(
-                    currentElementIndex -> {
-                        if (result[currentElementIndex] <= result[currentElementIndex + 1]) {
-                            return;
-                        }
-
-                        swap(result, currentElementIndex, currentElementIndex + 1);
+        range(1, result.length).forEach(to ->
+            range(0, result.length - to).forEach(current -> {
+                    if (result[current] <= result[current + 1]) {
+                        return;
                     }
-                )
+                    swap(result, current, current + 1);
+                }
+            )
         );
 
         return result;

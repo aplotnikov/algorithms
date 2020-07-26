@@ -1,5 +1,6 @@
 package io.github.aplotnikov.algorithms.sort;
 
+import static java.util.stream.IntStream.iterate;
 import static java.util.stream.IntStream.range;
 import static java.util.stream.IntStream.rangeClosed;
 
@@ -12,24 +13,14 @@ class ShellSort extends SortAlgorithm {
     public int[] apply(int[] source) {
         int[] result = source.clone();
 
-        int stepSize = initialStep(result.length);
-
-        while (stepSize > 0) {
-            int currentStepSize = stepSize;
-
-            range(0, result.length - stepSize).forEach(
-                lastElementIndex ->
-                    rangeClosed(0, lastElementIndex).forEach(
-                        currentElementIndex -> {
-                            if (result[currentElementIndex] > result[currentElementIndex + currentStepSize]) {
-                                swap(result, currentElementIndex, currentElementIndex + currentStepSize);
-                            }
-                        }
-                    )
-            );
-
-            stepSize = (stepSize - 1) / 3;
-        }
+        iterate(
+            initialStep(result.length),
+            step -> step > 0,
+            step -> (step - 1) / 3
+        ).forEach(step ->
+            range(0, result.length - step)
+                .forEach(to -> sort(to, step, result))
+        );
 
         return result;
     }
@@ -42,5 +33,14 @@ class ShellSort extends SortAlgorithm {
         }
 
         return size;
+    }
+
+    private void sort(int to, int step, int[] array) {
+        rangeClosed(0, to).forEach(current -> {
+                if (array[current] > array[current + step]) {
+                    swap(array, current, current + step);
+                }
+            }
+        );
     }
 }
